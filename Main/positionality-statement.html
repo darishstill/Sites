@@ -10,6 +10,11 @@
 <meta property="og:description" content="Positionality Statement — Darish K. Still, BASW Candidate, Millersville University.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://darishstill.com/positionality-statement.html">
+<meta property="og:image" content="https://darishstill.com/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Darish K. Still — Case Manager, Certified Recovery Specialist, BASW Candidate">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://darishstill.com/positionality-statement.html">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
@@ -34,6 +39,7 @@
 
   .skip-link{position:absolute; left:-999px; background:var(--ink); color:var(--paper); padding:12px 20px; z-index:100; font-family:'JetBrains Mono', monospace; font-size:13px;}
   .skip-link:focus{left:16px; top:16px;}
+  .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;}
 
   .eyebrow{font-family:'JetBrains Mono', monospace; font-size:12.5px; letter-spacing:0.11em; text-transform:uppercase; color:var(--water);}
 
@@ -69,9 +75,16 @@
   .download-row{margin-top:12px; padding-top:32px; border-top:1px solid var(--rule); display:flex; align-items:center; gap:16px; flex-wrap:wrap;}
   .btn{font-family:'JetBrains Mono', monospace; font-size:13px; letter-spacing:0.04em; padding:12px 20px; border:1px solid var(--ink); color:var(--ink); border-radius:2px; transition:background 0.2s ease, color 0.2s ease;}
   .btn:hover{background:var(--ink); color:var(--paper); text-decoration:none;}
+  button.btn{background:none; cursor:pointer; line-height:inherit; font-weight:inherit;}
+  button.btn.copied{background:var(--water); border-color:var(--water); color:var(--paper);}
 
   footer{padding:36px 0 48px; border-top:1px solid var(--rule); display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; max-width:900px; margin:0 auto; padding-left:32px; padding-right:32px;}
   footer .copy{font-family:'JetBrains Mono', monospace; font-size:12px; color:var(--ink-soft);}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{transition-duration:0.01ms !important; animation-duration:0.01ms !important;}
+  }
 </style>
 </head>
 <body>
@@ -139,7 +152,7 @@
       <p><strong>Social and Racial Justice:</strong> My experience as a Black man in American systems provides first-person evidence of how racial inequity operates at structural levels — not just in interpersonal bias, but in policy design, institutional gatekeeping, and differential outcomes.</p>
       <p><strong>Economic Justice:</strong> I have navigated poverty, public benefits systems, and under-resourced communities. My advocacy for economic justice is grounded in the experience of financial precarity, not observation of it.</p>
       <p><strong>Human Rights:</strong> Health equity, LGBTQ+ rights, and freedom from discrimination in healthcare settings are human rights issues I engage professionally through my behavioral health work — including the barriers stigma creates to prevention, treatment access, and affirming care.</p>
-      <p><strong>Intersectionality in Practice:</strong> The populations I'm most equipped to serve span several overlapping communities: Black men carrying trauma, addiction, and the pressure to perform strength instead of ask for help; people in recovery who've experienced treatment as a series of disconnected interventions rather than whole-person care; LGBTQ+ people navigating faith communities that weren't always safe; and people living with HIV who need a provider fluent in that reality without making it the entire conversation. These are exactly the populations whose needs get missed by practitioners who treat identity as a single axis instead of an intersection. This isn't a framework I apply from the outside. It's the calling that shaped my career choice.</p>
+      <p><strong>Intersectionality in Practice:</strong> The populations I'm most equipped to serve span several overlapping communities: Black men carrying trauma, addiction, and the pressure to perform strength instead of ask for help; people in recovery who've experienced treatment as a series of disconnected interventions rather than whole-person care; and LGBTQ+ people navigating faith communities that weren't always safe. These are exactly the populations whose needs get missed by practitioners who treat identity as a single axis instead of an intersection. This isn't a framework I apply from the outside. It's the calling that shaped my career choice.</p>
     </section>
 
     <section>
@@ -173,6 +186,8 @@
     <div class="download-row">
       <a class="btn" href="positionality-statement.pdf" target="_blank">Download as PDF</a>
       <a class="btn" href="mailto:darish@darishstill.com?subject=Positionality%20Statement%20-%20Request">Discuss this statement</a>
+      <button class="btn" id="sharebtn" type="button" data-label="Copy link">Copy link</button>
+      <span id="sharestatus" role="status" aria-live="polite" class="sr-only"></span>
     </div>
     <p class="note" style="margin-top:14px; font-size:13.5px;">If the button above doesn't open your mail app, email directly: darish@darishstill.com</p>
 
@@ -187,6 +202,63 @@
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  (function(){
+    const btn = document.getElementById('sharebtn');
+    const status = document.getElementById('sharestatus');
+    if (!btn) return;
+
+    const canShare = typeof navigator.share === 'function';
+    if (canShare) {
+      btn.textContent = 'Share';
+      btn.dataset.label = 'Share';
+    }
+
+    function flash(msg){
+      const original = btn.dataset.label;
+      btn.textContent = msg;
+      btn.classList.add('copied');
+      status.textContent = msg;
+      setTimeout(() => {
+        btn.textContent = original;
+        btn.classList.remove('copied');
+        status.textContent = '';
+      }, 2000);
+    }
+
+    async function copyFallback(url){
+      try {
+        await navigator.clipboard.writeText(url);
+        flash('Link copied');
+      } catch (err) {
+        const tmp = document.createElement('textarea');
+        tmp.value = url;
+        tmp.setAttribute('readonly', '');
+        tmp.style.position = 'absolute';
+        tmp.style.left = '-9999px';
+        document.body.appendChild(tmp);
+        tmp.select();
+        try { document.execCommand('copy'); flash('Link copied'); }
+        catch (e) { flash('Press Ctrl+C'); }
+        document.body.removeChild(tmp);
+      }
+    }
+
+    btn.addEventListener('click', async () => {
+      const url = window.location.href;
+      const title = document.title;
+      if (canShare) {
+        try {
+          await navigator.share({ title: title, url: url });
+        } catch (err) {
+          if (err && err.name === 'AbortError') return;
+          copyFallback(url);
+        }
+      } else {
+        copyFallback(url);
+      }
+    });
+  })();
 </script>
 
 </body>

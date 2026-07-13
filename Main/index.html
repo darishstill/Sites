@@ -13,9 +13,47 @@
 <meta property="og:description" content="Working toward LCSW licensure and private clinical practice, grounded in lived experience and faith.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://darishstill.com/">
-<!-- og:image intentionally omitted until a real preview image exists — add one before launch, e.g.:
-<meta property="og:image" content="https://darishstill.com/og-image.jpg"> -->
+<meta property="og:image" content="https://darishstill.com/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Darish K. Still — Case Manager, Certified Recovery Specialist, BASW Candidate">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://darishstill.com/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Darish K. Still",
+  "url": "https://darishstill.com/",
+  "image": "https://darishstill.com/og-image.jpg",
+  "email": "darish@darishstill.com",
+  "jobTitle": "Case Manager & Certified Recovery Specialist",
+  "description": "Case Manager and Certified Recovery Specialist working at the intersection of behavioral health, faith, and lived experience. BASW candidate at Millersville University, training toward LCSW licensure.",
+  "knowsAbout": [
+    "Substance use disorder recovery",
+    "Trauma-informed care",
+    "Case management",
+    "Behavioral health",
+    "Peer recovery support"
+  ],
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "Millersville University"
+  },
+  "hasCredential": {
+    "@type": "EducationalOccupationalCredential",
+    "credentialCategory": "Professional Certification",
+    "name": "Certified Recovery Specialist (CRS)",
+    "recognizedBy": {
+      "@type": "Organization",
+      "name": "Pennsylvania Certification Board"
+    }
+  },
+  "sameAs": [
+    "https://www.linkedin.com/in/darishstill/"
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -27,7 +65,6 @@
     --ink-soft: rgba(28,35,33,0.68);
     --water: #2E4756;
     --brass: #7A5A1E;
-    --signal: #8C3B34;
     --rule: rgba(28,35,33,0.14);
   }
   *{box-sizing:border-box; margin:0; padding:0;}
@@ -139,6 +176,19 @@
   @keyframes fadeRing1{to{opacity:0.72;}}
   @keyframes fadeRing2{to{opacity:0.46;}}
   @keyframes fadeRing3{to{opacity:0.26;}}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    #stabline{animation:none; stroke-dashoffset:0;}
+    .rdot{animation:none; opacity:1;}
+    .rring1{animation:none; opacity:0.72;}
+    .rring2{animation:none; opacity:0.46;}
+    .rring3{animation:none; opacity:0.26;}
+    .js .reveal{opacity:1; transform:none;}
+    .reveal{transition:none;}
+    *{transition-duration:0.01ms !important;}
+  }
+
   .line-caption{
     display:flex; justify-content:space-between;
     font-family:'JetBrains Mono', monospace;
@@ -220,14 +270,17 @@
   .essay-row h3{font-size:19px; font-weight:400; color:var(--ink);}
   .essay-status{
     font-family:'JetBrains Mono', monospace; font-size:12px;
-    color:var(--water); white-space:nowrap;
-    opacity:0.6; font-style:italic;
+    white-space:nowrap;
+  }
+  .essay-status-soon{
+    color:var(--water); opacity:0.6; font-style:italic;
+  }
+  .essay-status-live{
+    color:var(--brass); opacity:1; font-style:normal;
   }
   .writing-note{
     margin-top:28px; font-size:15px; color:var(--ink-soft); max-width:58ch;
   }
-
-  .essay-status-live{opacity:1 !important; font-style:normal !important; color:var(--brass) !important;}
 
   /* ---------- JOURNEY / TIMELINE ---------- */
   .timeline{margin-top:36px; border-left:1px solid var(--rule); padding-left:28px;}
@@ -388,9 +441,9 @@
       <p>I'm currently writing a longer manuscript about survival, faith, recovery, and identity — it isn't finished, so I won't be sharing details until it's ready. In the meantime, this is where I'll publish shorter reflections as they're written.</p>
     </div>
     <div class="essay-grid reveal">
-      <div class="essay-row"><h3>On being a Wounded Healer</h3><span class="essay-status">Coming soon</span></div>
-      <div class="essay-row"><h3>Stabilize before you accelerate</h3><span class="essay-status">Coming soon</span></div>
-      <div class="essay-row"><h3>Faith, community, and the parts I had to hold alone</h3><span class="essay-status">Coming soon</span></div>
+      <div class="essay-row"><h3>On being a Wounded Healer</h3><span class="essay-status essay-status-soon">Coming soon</span></div>
+      <div class="essay-row"><h3>Stabilize before you accelerate</h3><span class="essay-status essay-status-soon">Coming soon</span></div>
+      <div class="essay-row"><h3>Faith, community, and the parts I had to hold alone</h3><span class="essay-status essay-status-soon">Coming soon</span></div>
     </div>
     <p class="writing-note">Want to know when something new is posted? <a href="#contact">Reach out</a> and I'll let you know directly — there's no mailing list yet.</p>
   </div>
@@ -406,9 +459,8 @@
     <div class="essay-grid reveal">
       <div class="essay-row"><h3><a href="wounded-healer-thesis.html">Career Thesis: The Wounded Healer in Practice</a></h3><span class="essay-status essay-status-live">Read now</span></div>
       <div class="essay-row"><h3><a href="positionality-statement.html">Positionality Statement</a></h3><span class="essay-status essay-status-live">Read now</span></div>
-      <div class="essay-row"><h3>Applying the Phenomenological Lifeworld to Case Management</h3><span class="essay-status">Coming soon</span></div>
+      <div class="essay-row"><h3>Applying the Phenomenological Lifeworld to Case Management</h3><span class="essay-status essay-status-soon">Coming soon</span></div>
     </div>
-    <!-- Titles above are placeholders — swap in the specific papers you want public. One flag before posting anything: any case study or practicum-based assignment that references real client scenarios shouldn't go up here even de-identified, since that's a confidentiality line worth being conservative about. Thesis-style, positionality, and theory-application papers are the safer, stronger fit for a public research section. -->
   </div>
 </section>
 
