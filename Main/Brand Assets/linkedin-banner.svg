@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1584 396">
+  <rect width="1584" height="396" fill="#EAE6DC"/>
+
+  <!-- soft corner texture, top-left, echoes the ripple concept at large scale -->
+  <circle cx="-40" cy="-40" r="340" fill="none" stroke="#1C2321" stroke-width="1" opacity="0.04"/>
+  <circle cx="-40" cy="-40" r="260" fill="none" stroke="#1C2321" stroke-width="1" opacity="0.06"/>
+
+  <!-- wordmark, clear of the bottom-left profile-photo safe zone -->
+  <text x="362" y="185" font-family="Georgia, 'Times New Roman', serif" font-size="66" fill="#1C2321">Darish K. <tspan font-style="italic" fill="#7A5A1E">Still</tspan></text>
+
+  <!-- eyebrow line -->
+  <text x="364" y="228" font-family="'Courier New', monospace" font-size="19" letter-spacing="1.5" fill="#2E4756">CASE MANAGER   CERTIFIED RECOVERY SPECIALIST   BASW CANDIDATE</text>
+
+  <!-- signature ripple-to-still motif, positioned clear of the profile photo -->
+  <circle cx="382" cy="322" r="4" fill="#1C2321"/>
+  <circle cx="382" cy="322" r="10" fill="none" stroke="#1C2321" stroke-width="1.4" opacity="0.7"/>
+  <circle cx="382" cy="322" r="16" fill="none" stroke="#1C2321" stroke-width="1.1" opacity="0.42"/>
+  <line x1="404" y1="322" x2="1544" y2="322" stroke="#2E4756" stroke-width="3" stroke-linecap="round"/>
+</svg>

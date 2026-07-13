@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Darish K. Still</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
+<meta name="description" content="Darish K. Still — Case Manager, Certified Recovery Specialist, BASW candidate at Millersville University. Working toward LCSW licensure and private clinical practice.">
+<script>document.documentElement.classList.add('js');</script>
+<meta property="og:title" content="Darish K. Still — Case Manager & CRS">
+<meta property="og:description" content="Working toward LCSW licensure and private clinical practice, grounded in lived experience and faith.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://darishstill.com/">
+<!-- og:image intentionally omitted until a real preview image exists — add one before launch, e.g.:
+<meta property="og:image" content="https://darishstill.com/og-image.jpg"> -->
+<link rel="canonical" href="https://darishstill.com/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #EAE6DC;
+    --paper-deep: #DFDACD;
+    --ink: #1C2321;
+    --ink-soft: rgba(28,35,33,0.68);
+    --water: #2E4756;
+    --brass: #7A5A1E;
+    --signal: #8C3B34;
+    --rule: rgba(28,35,33,0.14);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth; scroll-padding-top:88px;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    font-size:17px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    letter-spacing:-0.01em;
+    line-height:1.08;
+  }
+  em{font-style:italic; color:var(--water);}
+  a{color:var(--brass); text-decoration:none;}
+  a:hover, a:focus-visible{text-decoration:underline;}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--water); outline-offset:3px;}
+  .wrap{max-width:1040px; margin:0 auto; padding:0 32px;}
+  .col{max-width:700px;}
+
+  .skip-link{
+    position:absolute; left:-999px; top:auto;
+    background:var(--ink); color:var(--paper);
+    padding:12px 20px; z-index:100;
+    font-family:'JetBrains Mono', monospace; font-size:13px;
+  }
+  .skip-link:focus{left:16px; top:16px;}
+
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12.5px;
+    letter-spacing:0.11em;
+    text-transform:uppercase;
+    color:var(--water);
+  }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(234,230,220,0.88);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--rule);
+  }
+  nav.wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    padding-top:18px; padding-bottom:18px;
+  }
+  .wordmark{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:19px;
+    color:var(--ink);
+  }
+  .wordmark em{color:var(--brass); font-style:italic;}
+  .navlinks{display:flex; gap:28px; list-style:none;}
+  .navlinks a{
+    color:var(--ink-soft); font-size:14.5px; font-weight:500;
+  }
+  .navlinks a:hover{color:var(--brass);}
+  .navtoggle{display:none; background:none; border:none; cursor:pointer;}
+  .navtoggle span{display:block; width:22px; height:2px; background:var(--ink); margin:4px 0;}
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative; padding:96px 0 64px; overflow:hidden;}
+  .hero .eyebrow{margin-bottom:22px;}
+  .hero h1{
+    font-size:clamp(38px, 6vw, 62px);
+    max-width:12ch;
+  }
+  .hero p.lede{
+    margin-top:24px;
+    max-width:52ch;
+    font-size:19px;
+    color:var(--ink-soft);
+  }
+  .hero .cta-row{margin-top:34px; display:flex; gap:22px; align-items:center; flex-wrap:wrap;}
+  .btn{
+    font-family:'JetBrains Mono', monospace;
+    font-size:13px;
+    letter-spacing:0.04em;
+    padding:12px 20px;
+    border:1px solid var(--ink);
+    color:var(--ink);
+    border-radius:2px;
+    transition:background 0.2s ease, color 0.2s ease;
+  }
+  .btn:hover{background:var(--ink); color:var(--paper); text-decoration:none;}
+  .btn-solid{background:var(--ink); color:var(--paper);}
+  .btn-solid:hover{background:var(--water); border-color:var(--water); color:var(--paper);}
+
+  .line-wrap{margin-top:64px; width:100%;}
+  .line-wrap svg{width:100%; height:auto; display:block;}
+  #stabline{
+    stroke-dasharray:900;
+    stroke-dashoffset:900;
+    animation:draw 1.8s cubic-bezier(.2,.7,.3,1) 0.7s forwards;
+  }
+  @keyframes draw{ to{ stroke-dashoffset:0; } }
+  .rdot{opacity:0; animation:fadeDot 0.5s ease 0s forwards;}
+  .rring1{opacity:0; animation:fadeRing1 0.5s ease 0.15s forwards;}
+  .rring2{opacity:0; animation:fadeRing2 0.5s ease 0.3s forwards;}
+  .rring3{opacity:0; animation:fadeRing3 0.5s ease 0.45s forwards;}
+  @keyframes fadeDot{to{opacity:1;}}
+  @keyframes fadeRing1{to{opacity:0.72;}}
+  @keyframes fadeRing2{to{opacity:0.46;}}
+  @keyframes fadeRing3{to{opacity:0.26;}}
+  .line-caption{
+    display:flex; justify-content:space-between;
+    font-family:'JetBrains Mono', monospace;
+    font-size:11.5px; color:var(--ink-soft);
+    margin-top:10px; letter-spacing:0.03em;
+  }
+
+  /* ---------- SECTION SCAFFOLD ---------- */
+  section{padding:88px 0; border-top:1px solid var(--rule);}
+  section h2{font-size:clamp(26px, 3.4vw, 34px); margin-bottom:28px;}
+  .reveal{opacity:1; transform:none; transition:opacity 0.7s ease, transform 0.7s ease;}
+  .js .reveal{opacity:0; transform:translateY(16px);}
+  .reveal.in{opacity:1; transform:none;}
+
+  .col p + p{margin-top:18px;}
+
+  .about-grid{
+    display:grid; grid-template-columns:280px 1fr; gap:52px; align-items:start;
+  }
+  .about-photo img{
+    width:100%; height:auto; display:block;
+    border:1px solid var(--rule);
+    border-radius:2px;
+  }
+  @media (max-width:760px){
+    .about-grid{grid-template-columns:1fr; gap:28px;}
+    .about-photo{max-width:220px;}
+  }
+
+  /* ---------- ABOUT ---------- */
+  .tags{display:flex; flex-wrap:wrap; gap:10px; margin-top:30px;}
+  .tag{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12.5px;
+    padding:7px 12px;
+    border:1px solid var(--rule);
+    border-radius:2px;
+    color:var(--water);
+    background:var(--paper-deep);
+  }
+
+  /* ---------- APPROACH ---------- */
+  .framework{
+    display:grid; grid-template-columns:repeat(4, 1fr); gap:18px;
+    margin-top:36px;
+  }
+  .fstep{
+    padding:22px 18px;
+    border:1px solid var(--rule);
+    background:var(--paper-deep);
+    border-radius:2px;
+  }
+  .fstep .num{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px; color:var(--brass);
+    display:block; margin-bottom:10px;
+  }
+  .fstep h3{font-size:17px; font-weight:500; margin-bottom:6px;}
+  .fstep p{font-size:14px; color:var(--ink-soft);}
+  .arrow-row{
+    display:flex; justify-content:center; margin:6px 0;
+    font-family:'JetBrains Mono', monospace; color:var(--rule); font-size:14px;
+  }
+  .principle-callout{
+    margin-top:44px; padding:26px 28px;
+    border-left:3px solid var(--brass);
+    background:var(--paper-deep);
+  }
+  .principle-callout .eyebrow{margin-bottom:8px;}
+  .principle-callout p{font-size:16.5px; max-width:56ch;}
+
+  /* ---------- WRITING ---------- */
+  .essay-grid{display:flex; flex-direction:column; gap:0; margin-top:30px;}
+  .essay-row{
+    display:flex; justify-content:space-between; align-items:baseline;
+    padding:20px 0; border-bottom:1px solid var(--rule);
+    gap:20px; flex-wrap:wrap;
+  }
+  .essay-row h3{font-size:19px; font-weight:400; color:var(--ink);}
+  .essay-status{
+    font-family:'JetBrains Mono', monospace; font-size:12px;
+    color:var(--water); white-space:nowrap;
+    opacity:0.6; font-style:italic;
+  }
+  .writing-note{
+    margin-top:28px; font-size:15px; color:var(--ink-soft); max-width:58ch;
+  }
+
+  .essay-status-live{opacity:1 !important; font-style:normal !important; color:var(--brass) !important;}
+
+  /* ---------- JOURNEY / TIMELINE ---------- */
+  .timeline{margin-top:36px; border-left:1px solid var(--rule); padding-left:28px;}
+  .tl-item{position:relative; padding-bottom:38px;}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-item::before{
+    content:''; position:absolute; left:-33px; top:5px;
+    width:9px; height:9px; border-radius:50%;
+    background:var(--paper); border:2px solid var(--brass);
+  }
+  .tl-item.current::before{background:var(--brass);}
+  .tl-item .eyebrow{margin-bottom:4px;}
+  .tl-item h3{font-size:18px; font-weight:500; margin-bottom:4px;}
+  .tl-item p{font-size:15px; color:var(--ink-soft); max-width:56ch;}
+
+  /* ---------- CONTACT ---------- */
+  .contact-photo{width:64px; height:64px; margin-bottom:16px;}
+  .contact-photo img{width:100%; height:100%; object-fit:cover; border-radius:50%; border:1px solid var(--rule); display:block;}
+
+  .contact-inner{display:flex; justify-content:space-between; flex-wrap:wrap; gap:32px;}
+  .contact-inner h2{max-width:14ch;}
+  .contact-links{display:flex; flex-direction:column; gap:12px;}
+  .contact-links a{
+    display:flex; flex-direction:column; gap:2px;
+    font-family:'JetBrains Mono', monospace; font-size:14px;
+    padding:16px 20px;
+    border:1px solid var(--ink);
+    border-radius:2px;
+    color:var(--ink);
+    background:var(--paper-deep);
+    transition:background 0.2s ease, color 0.2s ease;
+  }
+  .contact-links a:hover, .contact-links a:focus-visible{background:var(--ink); color:var(--paper); text-decoration:none;}
+  .contact-links a .clabel{font-size:11px; letter-spacing:0.08em; text-transform:uppercase; opacity:0.7;}
+  .contact-links a .caddr{font-family:'Fraunces', serif; font-size:18px; font-weight:500; letter-spacing:0;}
+  .contact-note{margin-top:20px; font-size:14.5px; color:var(--ink-soft); max-width:44ch;}
+
+  footer{
+    padding:36px 0 48px; border-top:1px solid var(--rule);
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+  }
+  footer .verse{font-family:'Fraunces', serif; font-style:italic; color:var(--water); font-size:14.5px;}
+  footer .copy{font-family:'JetBrains Mono', monospace; font-size:12px; color:var(--ink-soft);}
+
+  @media (max-width:760px){
+    .navlinks{
+      position:absolute; top:100%; left:0; right:0;
+      background:var(--paper); flex-direction:column; gap:0;
+      border-bottom:1px solid var(--rule);
+      display:none;
+    }
+    .navlinks.open{display:flex;}
+    .navlinks a{padding:16px 32px; border-top:1px solid var(--rule); width:100%;}
+    .navtoggle{display:block;}
+    .framework{grid-template-columns:1fr;}
+    .arrow-row{transform:rotate(90deg); margin:-6px 0;}
+    .contact-inner{flex-direction:column;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <div class="wordmark">Darish K. <em>Still</em></div>
+    <ul class="navlinks" id="navlinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#approach">Approach</a></li>
+      <li><a href="#writing">Writing</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#journey">Journey</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="navtoggle" id="navtoggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<main id="main">
+
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Case Manager · Certified Recovery Specialist · BASW Candidate</p>
+    <h1>Steady, on purpose.</h1>
+    <p class="lede">I work at the intersection of behavioral health, faith, and lived experience — training to become a licensed clinical social worker while practicing the same principle I bring to every client: <em>stabilize before you accelerate.</em></p>
+    <div class="cta-row">
+      <a class="btn" href="#about">Read my story</a>
+      <a class="btn btn-solid" href="#contact">Work with me</a>
+    </div>
+
+    <div class="line-wrap" aria-hidden="true">
+      <svg viewBox="0 0 1000 130" preserveAspectRatio="none">
+        <circle class="rdot" cx="70" cy="65" r="8" fill="#1C2321"/>
+        <circle class="rring1" cx="70" cy="65" r="22" fill="none" stroke="#1C2321" stroke-width="3"/>
+        <circle class="rring2" cx="70" cy="65" r="36" fill="none" stroke="#1C2321" stroke-width="2.4"/>
+        <circle class="rring3" cx="70" cy="65" r="50" fill="none" stroke="#1C2321" stroke-width="1.8"/>
+        <line id="stabline" x1="110" y1="65" x2="980" y2="65" stroke="#2E4756" stroke-width="5" stroke-linecap="round"/>
+      </svg>
+      <div class="line-caption"><span>unsettled</span><span>still</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-photo reveal">
+        <img src="photo-about.jpg" alt="Portrait of Darish K. Still" loading="lazy">
+      </div>
+      <div class="col reveal">
+        <p class="eyebrow">About</p>
+        <h2>Why this work, and why me.</h2>
+        <p>I came to social work the way a lot of the best clinicians do — from the inside of the system, not just the outside of a textbook. I'm a Black, gay, Christian man; a person in long-term recovery from substance use disorder; the adult child of a family shaped by addiction and poverty; a returning adult learner and first-generation college completer. I hold a Certified Recovery Specialist (CRS) credential and work full-time as a Case Manager at a faith-based treatment facility, while completing my BASW at Millersville University on the path toward an MSW and eventual LCSW licensure.</p>
+        <p>None of those identities sit in isolation, and I don't practice as if they do. The people I serve are often navigating the same intersections I have: trauma, addiction, faith communities that weren't always safe, and systems that respond to fragments of a person instead of the whole. I bring both a clinician's training and a survivor's fluency to that work — and I take the responsibility of holding both seriously.</p>
+        <div class="tags">
+          <span class="tag">Recovery</span>
+          <span class="tag">Faith &amp; Identity</span>
+          <span class="tag">Case Management</span>
+          <span class="tag">Trauma-Informed Care</span>
+          <span class="tag">First-Gen Learner</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="approach">
+  <div class="wrap">
+    <div class="col reveal">
+      <p class="eyebrow">Approach</p>
+      <h2>How I think about the work.</h2>
+      <p>Every case, every relationship, and every stage of my own training follows the same sequence. Systems tend to fail people by responding to fragments — a diagnosis, a relapse, a crisis — instead of the whole person underneath. I try to build in the opposite order.</p>
+    </div>
+
+    <div class="framework reveal">
+      <div class="fstep"><span class="num">01</span><h3>Safety</h3><p>Establish physical and emotional safety before anything else is possible.</p></div>
+      <div class="fstep"><span class="num">02</span><h3>Trust</h3><p>Build a relationship sturdy enough to hold honesty.</p></div>
+      <div class="fstep"><span class="num">03</span><h3>Disclosure</h3><p>Create room for the real story, at the person's own pace.</p></div>
+      <div class="fstep"><span class="num">04</span><h3>Root Cause Work</h3><p>Address what's underneath — not just what's presenting.</p></div>
+    </div>
+
+    <div class="principle-callout reveal">
+      <p class="eyebrow">Governing principle</p>
+      <p><strong>Stabilize before accelerating.</strong> It's the same instruction I give clients in early recovery, the same discipline I apply to my own academic pace, and the same caution I'd want any clinician to hold: growth that skips stabilization doesn't hold.</p>
+    </div>
+  </div>
+</section>
+
+<section id="writing">
+  <div class="wrap">
+    <div class="col reveal">
+      <p class="eyebrow">Writing</p>
+      <h2>Notes from the work, in progress.</h2>
+      <p>I'm currently writing a longer manuscript about survival, faith, recovery, and identity — it isn't finished, so I won't be sharing details until it's ready. In the meantime, this is where I'll publish shorter reflections as they're written.</p>
+    </div>
+    <div class="essay-grid reveal">
+      <div class="essay-row"><h3>On being a Wounded Healer</h3><span class="essay-status">Coming soon</span></div>
+      <div class="essay-row"><h3>Stabilize before you accelerate</h3><span class="essay-status">Coming soon</span></div>
+      <div class="essay-row"><h3>Faith, community, and the parts I had to hold alone</h3><span class="essay-status">Coming soon</span></div>
+    </div>
+    <p class="writing-note">Want to know when something new is posted? <a href="#contact">Reach out</a> and I'll let you know directly — there's no mailing list yet.</p>
+  </div>
+</section>
+
+<section id="research">
+  <div class="wrap">
+    <div class="col reveal">
+      <p class="eyebrow">Research</p>
+      <h2>Academic work.</h2>
+      <p>Selected papers and projects from my BASW coursework at Millersville University — work that connects social work theory to practice with the populations I'm training to serve.</p>
+    </div>
+    <div class="essay-grid reveal">
+      <div class="essay-row"><h3><a href="wounded-healer-thesis.html">Career Thesis: The Wounded Healer in Practice</a></h3><span class="essay-status essay-status-live">Read now</span></div>
+      <div class="essay-row"><h3><a href="positionality-statement.html">Positionality Statement</a></h3><span class="essay-status essay-status-live">Read now</span></div>
+      <div class="essay-row"><h3>Applying the Phenomenological Lifeworld to Case Management</h3><span class="essay-status">Coming soon</span></div>
+    </div>
+    <!-- Titles above are placeholders — swap in the specific papers you want public. One flag before posting anything: any case study or practicum-based assignment that references real client scenarios shouldn't go up here even de-identified, since that's a confidentiality line worth being conservative about. Thesis-style, positionality, and theory-application papers are the safer, stronger fit for a public research section. -->
+  </div>
+</section>
+
+<section id="journey">
+  <div class="wrap">
+    <div class="col reveal">
+      <p class="eyebrow">Journey</p>
+      <h2>Where I am, and where I'm headed.</h2>
+    </div>
+    <div class="timeline reveal">
+      <div class="tl-item">
+        <p class="eyebrow">Experience &amp; Credential</p>
+        <h3>Case Manager &amp; Certified Recovery Specialist (CRS)</h3>
+        <p>Providing case management and peer recovery support in a faith-based residential treatment setting, working directly with clients navigating substance use disorder, trauma, and reentry into stable life.</p>
+      </div>
+      <div class="tl-item current">
+        <p class="eyebrow">In progress · Fall 2026</p>
+        <h3>BASW, Millersville University</h3>
+        <p>Completing my Bachelor of Social Work on an accelerated online track.</p>
+      </div>
+      <div class="tl-item">
+        <p class="eyebrow">Next</p>
+        <h3>MSW &amp; Supervised Licensure Hours</h3>
+        <p>Advancing toward a Master of Social Work and the supervised hours required for clinical licensure.</p>
+      </div>
+      <div class="tl-item">
+        <p class="eyebrow">Goal</p>
+        <h3>LCSW &amp; Private Practice</h3>
+        <p>Launching a private clinical practice grounded in trauma-informed, faith-integrated care.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap contact-inner">
+    <div class="reveal">
+      <div class="contact-photo"><img src="photo-contact.jpg" alt="Darish K. Still" loading="lazy"></div>
+      <p class="eyebrow">Contact</p>
+      <h2>Let's talk.</h2>
+      <p class="contact-note">I'm currently accepting clients for Certified Recovery Specialist (CRS) support through my PA Certification Board credential, and I'm open to professional connections, speaking opportunities, and conversations about the work. This site does not offer clinical therapy or crisis services.</p>
+    </div>
+    <div class="contact-links reveal">
+      <a href="mailto:darish@darishstill.com"><span class="clabel">General &amp; CRS clients</span><span class="caddr">darish@darishstill.com</span></a>
+      <a href="mailto:bookings@darishstill.com"><span class="clabel">Speaking engagements</span><span class="caddr">bookings@darishstill.com</span></a>
+      <a href="https://www.linkedin.com/in/darishstill/" target="_blank" rel="noopener"><span class="clabel">Professional profile</span><span class="caddr">LinkedIn</span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="wrap">
+  <span class="verse">"Neither death, nor life… will be able to separate us." — Romans 8:38–39</span>
+  <span class="copy">© <span id="year"></span> Darish K. Still</span>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const toggle = document.getElementById('navtoggle');
+  const links = document.getElementById('navlinks');
+  toggle.addEventListener('click', () => {
+    const open = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open);
+  });
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    links.classList.remove('open');
+    toggle.setAttribute('aria-expanded', false);
+  }));
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, {threshold: 0.15});
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
