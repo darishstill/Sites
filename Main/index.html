@@ -7,16 +7,16 @@
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
-<meta name="description" content="Darish K. Still — Lead Case Manager, Certified Recovery Specialist, BASW candidate at Millersville University. Working toward LCSW licensure and private clinical practice.">
+<meta name="description" content="Darish K. Still — Case Manager, Certified Recovery Specialist, BASW candidate at Millersville University. Working toward LCSW licensure and private clinical practice.">
 <script>document.documentElement.classList.add('js');</script>
-<meta property="og:title" content="Darish K. Still — Lead Case Manager & CRS">
+<meta property="og:title" content="Darish K. Still — Case Manager & CRS">
 <meta property="og:description" content="Working toward LCSW licensure and private clinical practice, grounded in lived experience and faith.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://darishstill.com/">
 <meta property="og:image" content="https://darishstill.com/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Darish K. Still — Lead Case Manager, Certified Recovery Specialist, BASW Candidate">
+<meta property="og:image:alt" content="Darish K. Still — Case Manager, Certified Recovery Specialist, BASW Candidate">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://darishstill.com/">
 <script type="application/ld+json">
@@ -27,8 +27,8 @@
   "url": "https://darishstill.com/",
   "image": "https://darishstill.com/og-image.jpg",
   "email": "darish@darishstill.com",
-  "jobTitle": "Lead Case Manager & Certified Recovery Specialist",
-  "description": "Lead Case Manager and Certified Recovery Specialist working at the intersection of behavioral health, faith, and lived experience. BASW candidate at Millersville University, training toward LCSW licensure.",
+  "jobTitle": "Case Manager & Certified Recovery Specialist",
+  "description": "Case Manager and Certified Recovery Specialist working at the intersection of behavioral health, faith, and lived experience. BASW candidate at Millersville University, training toward LCSW licensure.",
   "knowsAbout": [
     "Substance use disorder recovery",
     "Trauma-informed care",
@@ -160,30 +160,25 @@
   .btn-solid{background:var(--ink); color:var(--paper);}
   .btn-solid:hover{background:var(--water); border-color:var(--water); color:var(--paper);}
 
-  .line-wrap{margin-top:64px; width:100%;}
-  .line-wrap svg{width:100%; height:auto; display:block;}
-  #stabline{
-    stroke-dasharray:900;
-    stroke-dashoffset:900;
-    animation:draw 1.8s cubic-bezier(.2,.7,.3,1) 0.7s forwards;
-  }
-  @keyframes draw{ to{ stroke-dashoffset:0; } }
-  .rdot{opacity:0; animation:fadeDot 0.5s ease 0s forwards;}
-  .rring1{opacity:0; animation:fadeRing1 0.5s ease 0.15s forwards;}
-  .rring2{opacity:0; animation:fadeRing2 0.5s ease 0.3s forwards;}
-  .rring3{opacity:0; animation:fadeRing3 0.5s ease 0.45s forwards;}
-  @keyframes fadeDot{to{opacity:1;}}
-  @keyframes fadeRing1{to{opacity:0.72;}}
-  @keyframes fadeRing2{to{opacity:0.46;}}
-  @keyframes fadeRing3{to{opacity:0.26;}}
+  .line-wrap{margin-top:64px; width:100%; max-width:720px;}
+  .line-wrap svg{width:100%; height:auto; display:block; overflow:visible;}
+  /* Mark C2, settling water: the ripple opens, the water calms in place, then the dot appears at "still". Plays once. */
+  .c2-src{opacity:0; animation:c2Fade .5s ease 0s forwards;}
+  .c2-ring{transform-box:fill-box; transform-origin:center; transform:scale(.35); animation:c2Ring 1.4s ease-out .1s forwards;}
+  .c2-ring.r2{animation-delay:.25s;} .c2-ring.r3{animation-delay:.4s;}
+  .c2-calm{animation:c2Calm 2.4s ease 2.2s forwards;}
+  .c2-wave{transform-box:view-box; transform-origin:0 40px; opacity:0; animation:c2Settle 3.6s cubic-bezier(.2,.6,.2,1) .6s forwards;}
+  .c2-rest{opacity:0; animation:c2Fade 1.4s ease 3.4s forwards;}
+  @keyframes c2Fade{to{opacity:1;}}
+  @keyframes c2Ring{to{transform:scale(1);}}
+  @keyframes c2Calm{to{opacity:.45;}}
+  @keyframes c2Settle{0%{opacity:0; transform:scaleY(2.3);} 15%{opacity:1;} 100%{opacity:1; transform:scaleY(1);}}
 
   @media (prefers-reduced-motion: reduce){
     html{scroll-behavior:auto;}
-    #stabline{animation:none; stroke-dashoffset:0;}
-    .rdot{animation:none; opacity:1;}
-    .rring1{animation:none; opacity:0.72;}
-    .rring2{animation:none; opacity:0.46;}
-    .rring3{animation:none; opacity:0.26;}
+    .c2-src,.c2-rest,.c2-wave{animation:none; opacity:1; transform:none;}
+    .c2-ring{animation:none; transform:none;}
+    .c2-calm{animation:none; opacity:.45;}
     .js .reveal{opacity:1; transform:none;}
     .reveal{transition:none;}
     *{transition-duration:0.01ms !important;}
@@ -357,6 +352,7 @@
       <li><a href="#research">Research</a></li>
       <li><a href="#writing">Writing</a></li>
       <li><a href="#journey">Journey</a></li>
+      <li><a href="/resume">Résumé</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <button class="navtoggle" id="navtoggle" aria-label="Toggle menu" aria-expanded="false">
@@ -370,7 +366,7 @@
 
 <section class="hero">
   <div class="wrap">
-    <p class="eyebrow">Lead Case Manager · Certified Recovery Specialist · BASW Candidate</p>
+    <p class="eyebrow">Case Manager · Certified Recovery Specialist · BASW Candidate</p>
     <h1>Steady, on purpose.</h1>
     <p class="lede">I work at the intersection of behavioral health, faith, and lived experience — training to become a licensed clinical social worker while practicing the same principle I bring to every client: <em>stabilize before you accelerate.</em></p>
     <div class="cta-row">
@@ -379,12 +375,15 @@
     </div>
 
     <div class="line-wrap" aria-hidden="true">
-      <svg viewBox="0 0 1000 130" preserveAspectRatio="none">
-        <circle class="rdot" cx="70" cy="65" r="8" fill="#1C2321"/>
-        <circle class="rring1" cx="70" cy="65" r="22" fill="none" stroke="#1C2321" stroke-width="3"/>
-        <circle class="rring2" cx="70" cy="65" r="36" fill="none" stroke="#1C2321" stroke-width="2.4"/>
-        <circle class="rring3" cx="70" cy="65" r="50" fill="none" stroke="#1C2321" stroke-width="1.8"/>
-        <line id="stabline" x1="110" y1="65" x2="980" y2="65" stroke="#2E4756" stroke-width="5" stroke-linecap="round"/>
+      <svg viewBox="0 0 560 80" class="c2mark">
+        <g class="c2-calm">
+          <circle class="c2-ring" cx="40" cy="40" r="14" fill="none" stroke="#1C2321" stroke-width="1.6" opacity="0.72"/>
+          <circle class="c2-ring r2" cx="40" cy="40" r="23" fill="none" stroke="#1C2321" stroke-width="1.3" opacity="0.46"/>
+          <circle class="c2-ring r3" cx="40" cy="40" r="32" fill="none" stroke="#1C2321" stroke-width="1" opacity="0.26"/>
+        </g>
+        <circle class="c2-src" cx="40" cy="40" r="5" fill="#1C2321"/>
+        <g class="c2-wave"><path d="M80,40.00 L83,35.00 L86,30.53 L89,26.81 L92,24.00 L95,22.21 L98,21.48 L101,21.80 L104,23.10 L107,25.24 L110,28.08 L113,31.43 L116,35.06 L119,38.78 L122,42.37 L125,45.64 L128,48.44 L131,50.63 L134,52.13 L137,52.89 L140,52.91 L143,52.22 L146,50.90 L149,49.06 L152,46.82 L155,44.32 L158,41.72 L161,39.16 L164,36.78 L167,34.70 L170,33.01 L173,31.79 L176,31.09 L179,30.90 L182,31.22 L185,32.01 L188,33.19 L191,34.67 L194,36.37 L197,38.18 L200,40.00 L203,41.72 L206,43.26 L209,44.54 L212,45.51 L215,46.12 L218,46.37 L221,46.26 L224,45.82 L227,45.08 L230,44.10 L233,42.95 L236,41.70 L239,40.42 L242,39.18 L245,38.06 L248,37.10 L251,36.34 L254,35.83 L257,35.56 L260,35.56 L263,35.79 L266,36.25 L269,36.88 L272,37.65 L275,38.51 L278,39.41 L281,40.29 L284,41.11 L287,41.83 L290,42.41 L293,42.82 L296,43.07 L299,43.13 L302,43.02 L305,42.75 L308,42.35 L311,41.83 L314,41.25 L317,40.62 L320,40.00 L323,39.41 L326,38.88 L329,38.44 L332,38.11 L335,37.89 L338,37.81 L341,37.84 L344,38.00 L347,38.25 L350,38.59 L353,38.98 L356,39.42 L359,39.86 L362,40.28 L365,40.67 L368,41.00 L371,41.26 L374,41.44 L377,41.53 L380,41.53 L383,41.45 L386,41.29 L389,41.07 L392,40.81 L395,40.51 L398,40.20 L401,39.90 L404,39.62 L407,39.37 L410,39.17 L413,39.03 L416,38.94 L419,38.92 L422,38.96 L425,39.05 L428,39.19 L431,39.37 L434,39.57 L437,39.78 L440,40.00 L500,40" fill="none" stroke="#2E4756" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/></g>
+        <circle class="c2-rest" cx="518" cy="40" r="6" fill="#1C2321"/>
       </svg>
       <div class="line-caption"><span>unsettled</span><span>still</span></div>
     </div>
@@ -400,7 +399,7 @@
       <div class="col reveal">
         <p class="eyebrow">About</p>
         <h2>Why this work, and why me.</h2>
-        <p>I came to social work the way a lot of the best clinicians do — from the inside of the system, not just the outside of a textbook. I'm a Black, gay, Christian man; a person in long-term recovery from substance use disorder; the adult child of a family shaped by addiction and poverty; a returning adult learner and first-generation college completer. I hold a Certified Recovery Specialist (CRS) credential and work full-time as a Lead Case Manager at a faith-based treatment facility, while completing my BASW at Millersville University on the path toward an MSW and eventual LCSW licensure.</p>
+        <p>I came to social work the way a lot of the best clinicians do — from the inside of the system, not just the outside of a textbook. I'm a Black, gay, Christian man; a person in long-term recovery from substance use disorder; the adult child of a family shaped by addiction and poverty; a returning adult learner and first-generation college completer. I hold a Certified Recovery Specialist (CRS) credential and work full-time as a Case Manager at a faith-based treatment facility, while completing my BASW at Millersville University on the path toward an MSW and eventual LCSW licensure.</p>
         <p>None of those identities sit in isolation, and I don't practice as if they do. The people I serve are often navigating the same intersections I have: trauma, addiction, faith communities that weren't always safe, and systems that respond to fragments of a person instead of the whole. I bring both a clinician's training and a survivor's fluency to that work — and I take the responsibility of holding both seriously.</p>
         <div class="tags">
           <span class="tag">Recovery</span>
@@ -486,7 +485,7 @@
     <div class="timeline reveal">
       <div class="tl-item">
         <p class="eyebrow">Experience &amp; Credential</p>
-        <h3>Lead Case Manager &amp; Certified Recovery Specialist (CRS)</h3>
+        <h3>Case Manager &amp; Certified Recovery Specialist (CRS)</h3>
         <p>Providing case management and peer recovery support in a faith-based residential treatment setting, working directly with clients navigating substance use disorder, trauma, and reentry into stable life, and supervising interns.</p>
       </div>
       <div class="tl-item current">
